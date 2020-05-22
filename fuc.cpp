@@ -7,8 +7,8 @@ Heap CreateHeap(int Maxlayer)
 	//创建容积为2^Maxlayer-1的最大堆(Maxlayer >= 1)
 	int Maxsize = (int)pow(2, Maxlayer);
 	Heap h = (Heap)malloc(sizeof(struct HNode));
-	h->Data = new int[Maxsize+1]();
-	h->Capacity = Maxsize;
+	h->Data = new int[Maxsize]();
+	h->Capacity = Maxsize-1;
 	h->Size = 0;
 	h->Data[0] = MAX;//哨兵，意义？
 
@@ -107,6 +107,7 @@ int DeleteMaxHeap(MaxHeap H)
 
 	while (H->Data[i*2]!=0)
 	{
+		//在i,i*2,i*2+1三个数的Data之间比较大小
 		cmp = Maxab(H->Data[i * 2], H->Data[i * 2 + 1]);
 		if (cmp == H->Data[i * 2]) {
 			cmp = Maxab(cmp, H->Data[i]);
@@ -126,6 +127,7 @@ int DeleteMaxHeap(MaxHeap H)
 				i = i * 2 + 1;
 			}
 		}
+
 	}
 
 	return ret;
