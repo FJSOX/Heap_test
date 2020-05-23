@@ -107,6 +107,7 @@ int DeleteMaxHeap(MaxHeap H)
 
 	while (H->Data[i*2]!=0)
 	{
+		//在i,i*2,i*2+1三个数的Data之间比较大小
 		cmp = Maxab(H->Data[i * 2], H->Data[i * 2 + 1]);
 		if (cmp == H->Data[i * 2]) {
 			cmp = Maxab(cmp, H->Data[i]);
@@ -126,6 +127,7 @@ int DeleteMaxHeap(MaxHeap H)
 				i = i * 2 + 1;
 			}
 		}
+
 	}
 
 	return ret;
