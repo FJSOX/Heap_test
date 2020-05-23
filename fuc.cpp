@@ -7,8 +7,8 @@ Heap CreateHeap(int Maxlayer)
 	//创建容积为2^Maxlayer-1的最大堆(Maxlayer >= 1)
 	int Maxsize = (int)pow(2, Maxlayer);
 	Heap h = (Heap)malloc(sizeof(struct HNode));
-	h->Data = new int[Maxsize+1]();
-	h->Capacity = Maxsize;
+	h->Data = new int[Maxsize]();
+	h->Capacity = Maxsize-1;
 	h->Size = 0;
 	h->Data[0] = MAX;//哨兵，意义？
 
